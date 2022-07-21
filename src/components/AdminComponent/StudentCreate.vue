@@ -1,24 +1,3 @@
-<script setup>
-  import TheSelect from '@/components/main/TheSelect.vue'
-  import { computed } from '@vue/runtime-core'
-  import { useRouter } from 'vue-router'
-  import {  useStore } from 'vuex'
-
-
-  const store = useStore()
-  const router = useRouter()
-
-  store.dispatch('getUniversityList')
-
-  const universityList = computed(() => store.state.university_list)
-
-  const onSubmit = () => {
-    store.dispatch('postCreateStudent')
-    router.push('/admin')
-  }
-
-</script>
-
 <template>
 <div class="p-[28px] mx-auto w-[70%] bg-white rounded-lg">
   <form @submit.prevent='onSubmit'>
@@ -54,7 +33,6 @@
           width='100%'
           title="OTM ni tanlang"
           :arr='universityList'
-          :data='store.state.student.institute'
         />
       </label>
       <div class="my-8 flex items-center justify-between gap-x-6">
@@ -63,8 +41,7 @@
           <TheSelect
             width='100%'
             title="Barchasi"
-            :arr='store.state.student_type'
-            :data='store.state.student.type'
+            :arr='studentType'
           />
         </label>
         <label for="legal-phone" class="text-[#1D1D1F] w-[50%] text-xs flex flex-col items-start uppercase font-semibold">
@@ -89,3 +66,23 @@
   </form>
 </div>
 </template>
+
+<script setup>
+  import TheSelect from '@/components/main/TheSelect.vue'
+  import { computed } from '@vue/runtime-core'
+  import { useRouter } from 'vue-router'
+  import {  useStore } from 'vuex'
+
+  const store = useStore()
+  const router = useRouter()
+
+  store.dispatch('getUniversityList')
+
+  const universityList = computed(() => store.state.university_list)
+  const studentType = computed(() => store.state.student_type)
+
+  const onSubmit = () => {
+    store.dispatch('postCreateStudent')
+    router.push('/admin')
+  }
+</script>

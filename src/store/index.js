@@ -55,7 +55,7 @@ export default createStore({
     university_list: [],
     admin_status: true,
     isSubmitted: false,
-    adminActive: 'sponsors',
+    adminActive: 'students',
     adminInfo_active: '',
     admin_info: {},
     filter_clear: false,

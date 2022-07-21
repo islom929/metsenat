@@ -1,26 +1,3 @@
-<script setup>
-  import { defineProps, reactive, ref, watchEffect } from 'vue'
-  import { useStore } from 'vuex'
-
-  const props = defineProps(['width', 'arr', 'title', 'data', 'clear', 'top'])
-  const store = useStore()
-
-  const isActive = ref(false)
-  const isChecked = reactive({
-    status: false,
-    value: ''
-  })
-
-  watchEffect(() => {
-    if (props.clear) {
-      isActive.value = false
-      isChecked.status = false
-      isChecked.value = ''
-      store.state.filter_clear = false
-    }
-  })
-</script>
-
 <template>
 <div class="relative w-full">
   <button @click.prevent='() => {
@@ -46,6 +23,29 @@
   </Transition>
 </div>
 </template>
+
+<script setup>
+  import { defineProps, reactive, ref, watchEffect } from 'vue'
+  import { useStore } from 'vuex'
+
+  const props = defineProps(['width', 'arr', 'title', 'data', 'clear', 'top'])
+  const store = useStore()
+
+  const isActive = ref(false)
+  const isChecked = reactive({
+    status: false,
+    value: ''
+  })
+
+  watchEffect(() => {
+    if (props.clear) {
+      isActive.value = false
+      isChecked.status = false
+      isChecked.value = ''
+      store.state.filter_clear = false
+    }
+  })
+</script>
 
 <style lang="scss" scoped>
   .fade-enter-active,

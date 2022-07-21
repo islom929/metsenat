@@ -1,9 +1,3 @@
-<script setup>
-  import { defineProps } from 'vue'
-
-  const props = defineProps(['role'])
-</script>
-
 <template>
   <div class="text-xs text-[#B1B1B8] w-full flex items-center justify-between px-[20px] mb-[12px] text-center uppercase">
     <span :class="props.role === 'sponsors' ? 'w-[3%]' : 'w-[3%]'">#</span>
@@ -16,3 +10,9 @@
     <span :class="props.role === 'sponsors' ? 'w-[7%]' : 'w-[7%]'">Amallar</span>
   </div>
 </template>
+
+<script setup>
+  import { defineProps } from 'vue'
+
+  const props = defineProps(['role'])
+</script>

@@ -1,11 +1,3 @@
-<script setup>
-  import { ref } from 'vue'
-  import ActiveNavbar from '@/components/layout/ActiveNavbar.vue'
-  import DefaultNavbar from '@/components/layout/DefaultNavbar.vue'
-
-  const menu = ref(false)
-</script>
-
 <template>
   <header class="shadow bg-white fixed top-0 left-0 right-0 z-10">
     <nav class="py-7 px-[25px] max-w-container mx-auto flex items-center justify-between">
@@ -23,7 +15,15 @@
   </header>
 </template>
 
-<style lang="scss">
+<script setup>
+  import { ref } from 'vue'
+  import ActiveNavbar from '@/components/layout/ActiveNavbar.vue'
+  import DefaultNavbar from '@/components/layout/DefaultNavbar.vue'
+
+  const menu = ref(false)
+</script>
+
+<style lang="scss" scoped>
   .slide-fade-enter-active {
     transition: all 0.3s ease-out;
   }

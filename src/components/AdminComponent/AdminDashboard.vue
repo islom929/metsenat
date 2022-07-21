@@ -1,17 +1,9 @@
-<script setup>
-  import DashboardPriceCard from '@/components/AdminComponent/DashboardPriceCard.vue'
-  import { useStore } from 'vuex'
-
-  const store = useStore()
-
-</script>
-
 <template>
-  <div v-if="store.state.admin_status" class="">
+  <div v-if="status" class="">
     <ul class="list-none flex items-center justify-between w-full">
       <li
         class="w-[31%] rounded-md bg-white"
-        v-for="item in store.state.dashboard"
+        v-for="item in dashboard"
         :key="item">
           <DashboardPriceCard
             :title='item.title'
@@ -38,3 +30,14 @@
     </div>
   </div>
 </template>
+
+<script setup>
+  import DashboardPriceCard from '@/components/AdminComponent/DashboardPriceCard.vue'
+  import { computed } from '@vue/runtime-core'
+  import { useStore } from 'vuex'
+
+  const store = useStore()
+
+  const status = computed(() => store.state.admin_status)
+  const dashboard = computed(() => store.state.dashboard)
+</script>

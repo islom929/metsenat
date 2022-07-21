@@ -24,4 +24,8 @@
   </component>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  input {
+    outline: none;
+  }
+</style>
